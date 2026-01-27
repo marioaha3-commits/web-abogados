@@ -183,14 +183,14 @@ export default function LawFirmLander() {
                   name="nombre" 
                   type="text" 
                   required 
-                  placeholder="Nombre Completo" 
+                  placeholder="Nombre" 
                   className="w-full bg-white/5 border border-white/10 rounded-lg py-4 px-4 outline-none focus:border-amber-400 transition-colors text-base" 
                 />
                 <input 
                   name="telefono" 
                   type="tel" 
                   required 
-                  placeholder="Teléfono (614)" 
+                  placeholder="Teléfono" 
                   className="w-full bg-white/5 border border-white/10 rounded-lg py-4 px-4 outline-none focus:border-amber-400 transition-colors text-base" 
                 />
                 <div className="space-y-2">
@@ -199,7 +199,7 @@ export default function LawFirmLander() {
                     name="caso" 
                     required 
                     rows="4" 
-                    placeholder="¿Qué aconteció en su situación jurídica?" 
+                    placeholder="Cuentenos que sucedió..." 
                     className="w-full bg-white/5 border border-white/10 rounded-lg p-4 outline-none focus:border-amber-400 text-base resize-none"
                   ></textarea>
                 </div>
