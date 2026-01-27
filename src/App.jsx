@@ -8,9 +8,7 @@ import {
 const FIRM_CONFIG = {
   name: "HERNANDEZ Y ASOCIADOS",
   tagline: "Abogados de Chihuahua",
-  // ESTA ES LA LÍNEA QUE CAMBIAS:
-  apiEndpoint: "https://web-abogados.onrender.com/api/contacto", 
-  // ... resto del código
+  apiEndpoint: `${import.meta.env.VITE_API_URL}/api/contacto`,
   contact: {
     phone: "6144681949",
     displayPhone: "614-468-19-49",
@@ -20,6 +18,7 @@ const FIRM_CONFIG = {
   },
   stats: { years: "20+", successRate: "90%" }
 };
+
 
 const SERVICES = [
   { icon: Gavel, title: "Derecho Penal", desc: "Delitos contra la Vida, Patrimonio, Familia y Libertad." },
