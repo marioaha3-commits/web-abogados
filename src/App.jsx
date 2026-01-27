@@ -8,8 +8,9 @@ import {
 const FIRM_CONFIG = {
   name: "HERNANDEZ Y ASOCIADOS",
   tagline: "Abogados de Chihuahua",
-  // URL de tu API (ajustar según tu entorno)
-  apiEndpoint: "http://localhost:5000/api/contacto", 
+  // ESTA ES LA LÍNEA QUE CAMBIAS:
+  apiEndpoint: "https://web-abogados.onrender.com/api/contacto", 
+  // ... resto del código
   contact: {
     phone: "6144681949",
     displayPhone: "614-468-19-49",
