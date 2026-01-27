@@ -8,7 +8,7 @@ import {
 const FIRM_CONFIG = {
   name: "HERNANDEZ Y ASOCIADOS",
   tagline: "Abogados de Chihuahua",
-  apiEndpoint: `${import.meta.env.VITE_API_URL}/api/contacto`,
+  apiEndpoint: `${process.env.REACT_APP_API_URL || 'https://asociados-backend.onrender.com'}/api/contacto`,
   contact: {
     phone: "6144681949",
     displayPhone: "614-468-19-49",
@@ -18,7 +18,6 @@ const FIRM_CONFIG = {
   },
   stats: { years: "20+", successRate: "90%" }
 };
-
 
 const SERVICES = [
   { icon: Gavel, title: "Derecho Penal", desc: "Delitos contra la Vida, Patrimonio, Familia y Libertad." },
@@ -31,7 +30,7 @@ const SERVICES = [
 
 export default function LawFirmLander() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Estado para el envío
+  const [isLoading, setIsLoading] = useState(false);
   const [showFloatBtn, setShowFloatBtn] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const formRef = useRef(null);
@@ -70,7 +69,7 @@ export default function LawFirmLander() {
 
       if (response.ok) {
         setIsSubmitted(true);
-        e.target.reset(); // Limpiar formulario
+        e.target.reset();
         setTimeout(() => setIsSubmitted(false), 5000);
       } else {
         const errorData = await response.json();
@@ -98,7 +97,8 @@ export default function LawFirmLander() {
           >
             <a 
               href={`https://wa.me/${FIRM_CONFIG.contact.phone}?text=${encodeURIComponent(FIRM_CONFIG.contact.whatsappMsg)}`}
-              target="_blank" rel="noopener noreferrer"
+              target="_blank" 
+              rel="noopener noreferrer"
               className="bg-[#25D366] p-4 rounded-full shadow-2xl text-white active:scale-90 transition-transform"
             >
               <MessageCircle size={24} />
@@ -173,7 +173,7 @@ export default function LawFirmLander() {
             </div>
           </motion.div>
 
-          {/* FORMULARIO CON ATRIBUTOS NAME */}
+          {/* FORMULARIO */}
           <div ref={formRef} className="scroll-mt-24">
             <div className="bg-[#121214] border border-white/10 p-6 sm:p-10 rounded-xl shadow-2xl relative overflow-hidden">
               <h3 className="text-base sm:text-lg font-serif text-white mb-6 uppercase tracking-wider text-center">NOSOTROS LE MARCAMOS EN MENOS DE 2 HORAS</h3>
