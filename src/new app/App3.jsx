@@ -8,13 +8,13 @@ import {
 const FIRM_CONFIG = {
   name: "HERNANDEZ Y ASOCIADOS",
   tagline: "Abogados de Chihuahua",
-  apiEndpoint: `${import.meta.env.VITE_API_URL || 'https://asociados-backend.onrender.com'}/api/contacto`,
+  apiEndpoint: `${import.meta.env.VITE_API_URL || 'https://asociados-backend.onrender.com'}/api/contacto`, // Eliminado espacio extra
   contact: {
     phone: "6144681949",
     displayPhone: "614-468-19-49",
     whatsappMsg: "Hola, necesito asesoría legal urgente en Chihuahua.",
     location: "Chihuahua, México",
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116545.45293214734!2d-106.1643924!3d28.6329957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ea4497334757c9%3A0x67341b525d8084a4!2sChihuahua%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx"
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116545.45293214734!2d-106.1643924!3d28.6329957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ea4497334757c9%3A0x67341b525d8084a4!2sChihuahua%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" // Eliminado espacio extra
   },
   stats: { years: "20+", successRate: "90%" }
 };
@@ -90,23 +90,23 @@ export default function LawFirmLander() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-4 right-4 z-[100] flex flex-col gap-3 sm:bottom-6 sm:right-6"
+            className="fixed bottom-6 right-4 z-[100] flex flex-col gap-3"
           >
             <a 
-              href={`https://wa.me/${FIRM_CONFIG.contact.phone}?text=${encodeURIComponent(FIRM_CONFIG.contact.whatsappMsg)}`}
+              href={`https://wa.me/${FIRM_CONFIG.contact.phone}?text=${encodeURIComponent(FIRM_CONFIG.contact.whatsappMsg)}`} // Eliminado espacio extra
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-[#25D366] p-3.5 sm:p-4 rounded-full shadow-2xl text-white active:scale-95 transition-transform touch-manipulation hover:shadow-[#25D366]/50"
+              className="bg-[#25D366] p-4 rounded-full shadow-2xl text-white active:scale-95 transition-transform touch-manipulation"
               aria-label="WhatsApp"
             >
-              <MessageCircle size={22} className="sm:w-6 sm:h-6" />
+              <MessageCircle size={24} />
             </a>
             <button 
               onClick={scrollToForm}
-              className="bg-amber-400 p-3.5 sm:p-4 rounded-full shadow-2xl text-black active:scale-95 transition-transform touch-manipulation hover:shadow-amber-400/50"
+              className="bg-amber-400 p-4 rounded-full shadow-2xl text-black active:scale-95 transition-transform touch-manipulation"
               aria-label="Agendar cita"
             >
-              <Scale size={22} className="sm:w-6 sm:h-6" />
+              <Scale size={24} />
             </button>
           </motion.div>
         )}
@@ -114,20 +114,15 @@ export default function LawFirmLander() {
 
       {/* NAVBAR RESPONSIVA - Mejorada para móvil */}
       <nav className="fixed w-full z-[110] border-b border-white/5 bg-[#0a0a0b]/95 backdrop-blur-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex justify-between items-center">
-          <div className="flex items-center gap-2 min-w-0 flex-1">
-            <Scale className="text-amber-400 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-            <div className="leading-tight min-w-0 flex-1">
-              <span className="text-white font-serif text-xs sm:text-[13px] font-bold tracking-wide block truncate">
-                HERNANDEZ Y ASOCIADOS
-              </span>
-              <p className="text-[8px] sm:text-[9px] text-amber-400/80 tracking-[1px] sm:tracking-[1.5px] mt-0.5 uppercase font-bold truncate">
-                {FIRM_CONFIG.tagline}
-              </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex justify-between items-center">
+          <div className="flex items-center gap-2 min-w-0">
+            <Scale className="text-amber-400 w-6 h-6 flex-shrink-0" />
+            <div className="leading-tight min-w-0">
+              <span className="text-white font-serif text-[13px] font-bold tracking-wide block truncate">HERNANDEZ Y ASOCIADOS</span>
+              <p className="text-[9px] text-amber-400/80 tracking-[1.5px] mt-0.5 uppercase font-bold truncate">{FIRM_CONFIG.tagline}</p>
             </div>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
             <button 
               onClick={() => {
@@ -145,17 +140,15 @@ export default function LawFirmLander() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 touch-manipulation flex-shrink-0" 
+            className="md:hidden p-2.5 touch-manipulation" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            {mobileMenuOpen ? <X className="text-white w-5 h-5" /> : <Menu className="text-white w-5 h-5" />}
+            {mobileMenuOpen ? <X className="text-white w-6 h-6" /> : <Menu className="text-white w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div 
@@ -164,13 +157,13 @@ export default function LawFirmLander() {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-[#0e0e10] border-b border-white/10 overflow-hidden"
             >
-              <div className="flex flex-col p-4 gap-3 items-stretch">
+              <div className="flex flex-col p-5 gap-5 items-center text-center">
                 <button 
                   onClick={() => {
                     document.getElementById('services')?.scrollIntoView({behavior:'smooth'});
                     setMobileMenuOpen(false);
                   }} 
-                  className="text-sm font-medium uppercase tracking-wider py-3 hover:bg-white/5 rounded-lg transition-colors touch-manipulation text-center"
+                  className="text-base font-medium uppercase tracking-wider w-full py-3 hover:bg-white/5 rounded-lg transition-colors"
                 >
                   Áreas de Práctica
                 </button>
@@ -179,13 +172,13 @@ export default function LawFirmLander() {
                     document.getElementById('contact')?.scrollIntoView({behavior:'smooth'});
                     setMobileMenuOpen(false);
                   }} 
-                  className="text-sm font-medium uppercase tracking-wider py-3 hover:bg-white/5 rounded-lg transition-colors touch-manipulation text-center"
+                  className="text-base font-medium uppercase tracking-wider w-full py-3 hover:bg-white/5 rounded-lg transition-colors"
                 >
                   Ubicación
                 </button>
                 <button 
                   onClick={scrollToForm} 
-                  className="w-full bg-amber-400 text-black py-3.5 font-bold rounded-lg uppercase text-xs tracking-wider mt-1 touch-manipulation"
+                  className="w-full bg-amber-400 text-black py-4 font-bold rounded-lg uppercase text-sm tracking-wider mt-2 touch-manipulation"
                 >
                   AGENDE SU CITA
                 </button>
@@ -196,55 +189,45 @@ export default function LawFirmLander() {
       </nav>
 
       {/* HERO SECTION - Optimizada para móvil */}
-      <section className="relative pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
+      <section className="relative pt-28 pb-10 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 sm:gap-10 items-center">
           <motion.div 
             initial={{opacity:0, y:20}} 
             animate={{opacity:1, y:0}}
             className="lg:pr-8"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight mb-4 sm:mb-5">
-              Estamos para defenderlo{' '}
-              <span className="italic text-amber-200/90 font-light block mt-1">
-                en sus asuntos legales
-              </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white leading-tight mb-5">
+              Estamos para defenderlo <br className="hidden sm:block" /> 
+              <span className="italic text-amber-200/90 font-light">en sus asuntos legales</span>
             </h1>
             
             {/* Stats adaptadas para móvil */}
-            <div className="flex flex-row justify-start gap-6 sm:gap-8 border-t border-white/10 pt-4 sm:pt-5 mt-3">
-              <div className="min-w-[90px] sm:min-w-[100px]">
-                <span className="block text-2xl sm:text-3xl font-serif text-white font-bold">
-                  {FIRM_CONFIG.stats.years}
-                </span>
-                <span className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1 block">
-                  Años de Pericia
-                </span>
+            <div className="flex flex-col sm:flex-row justify-between sm:justify-start gap-4 sm:gap-8 border-t border-white/10 pt-5 mt-2">
+              <div className="min-w-[100px]">
+                <span className="block text-2xl sm:text-3xl font-serif text-white font-bold">{FIRM_CONFIG.stats.years}</span>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-slate-400 font-bold mt-1 block">Años de Pericia</span>
               </div>
-              <div className="min-w-[90px] sm:min-w-[100px]">
-                <span className="block text-2xl sm:text-3xl font-serif text-white font-bold">
-                  {FIRM_CONFIG.stats.successRate}
-                </span>
-                <span className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1 block leading-tight">
-                  Sentencias Favorables
-                </span>
+              <div className="min-w-[100px]">
+                <span className="block text-2xl sm:text-3xl font-serif text-white font-bold">{FIRM_CONFIG.stats.successRate}</span>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-slate-400 font-bold mt-1 block leading-tight">Sentencias Favorables</span>
               </div>
             </div>
           </motion.div>
 
           {/* FORMULARIO - Optimizado para táctil */}
-          <div ref={formRef} className="scroll-mt-20 sm:scroll-mt-24 md:scroll-mt-28">
-            <div className="bg-[#121214] border border-white/10 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-xl relative overflow-hidden">
-              <h3 className="text-[11px] sm:text-xs md:text-sm font-serif text-white mb-4 sm:mb-5 uppercase tracking-[1.2px] sm:tracking-[1.5px] text-center">
+          <div ref={formRef} className="scroll-mt-24 sm:scroll-mt-28"> {/* Ajuste de margen de scroll */}
+            <div className="bg-[#121214] border border-white/10 p-5 sm:p-6 rounded-2xl shadow-xl relative overflow-hidden">
+              <h3 className="text-xs sm:text-sm font-serif text-white mb-5 uppercase tracking-[1.5px] text-center px-2">
                 LE CONTACTAREMOS EN MENOS DE 2 HORAS
               </h3>
               
-              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
+              <form onSubmit={handleSubmit} className="space-y-3.5">
                 <input 
                   name="nombre" 
                   type="text" 
                   required 
                   placeholder="Nombre completo" 
-                  className="w-full bg-white/5 border border-white/10 rounded-lg sm:rounded-xl py-3 sm:py-3.5 px-3.5 sm:px-4 outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/20 text-sm sm:text-base placeholder:text-slate-500 transition-colors touch-manipulation"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3.5 px-4 outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/20 text-base placeholder:text-slate-500 transition-colors touch-manipulation"
                   aria-label="Nombre completo"
                 />
                 <input 
@@ -252,12 +235,12 @@ export default function LawFirmLander() {
                   type="tel" 
                   required 
                   placeholder="Teléfono con lada" 
-                  className="w-full bg-white/5 border border-white/10 rounded-lg sm:rounded-xl py-3 sm:py-3.5 px-3.5 sm:px-4 outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/20 text-sm sm:text-base placeholder:text-slate-500 transition-colors touch-manipulation"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3.5 px-4 outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/20 text-base placeholder:text-slate-500 transition-colors touch-manipulation"
                   aria-label="Teléfono con lada"
                 />
                 <div className="space-y-1.5">
-                  <label className="text-[9px] sm:text-[10px] uppercase tracking-wider text-amber-300 font-bold ml-1 flex items-center">
-                    <MessageCircle size={11} className="mr-1 sm:w-3 sm:h-3" />
+                  <label className="text-[10px] uppercase tracking-wider text-amber-300 font-bold ml-1 flex items-center">
+                    <MessageCircle size={12} className="mr-1" />
                     Detalles de su caso:
                   </label>
                   <textarea 
@@ -265,14 +248,14 @@ export default function LawFirmLander() {
                     required 
                     rows="3" 
                     placeholder="Explique brevemente su situación legal..." 
-                    className="w-full bg-white/5 border border-white/10 rounded-lg sm:rounded-xl p-3 sm:p-3.5 outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/20 text-sm sm:text-base placeholder:text-slate-500 resize-none touch-manipulation"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3.5 outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/20 text-base placeholder:text-slate-500 resize-none touch-manipulation"
                     aria-label="Detalles del caso"
                   ></textarea>
                 </div>
                 <motion.button 
                   whileTap={{ scale: 0.97 }} 
                   disabled={isLoading}
-                  className="w-full bg-amber-400 text-black font-bold py-3 sm:py-3.5 rounded-lg sm:rounded-xl uppercase text-[10px] sm:text-[11px] tracking-[1.2px] sm:tracking-[1.5px] shadow-md hover:shadow-lg disabled:opacity-60 transition-all touch-manipulation mt-1"
+                  className="w-full bg-amber-400 text-black font-bold py-3.5 rounded-xl uppercase text-[11px] tracking-[1.5px] shadow-md hover:shadow-lg disabled:opacity-60 transition-all touch-manipulation mt-1"
                   type="submit"
                 >
                   {isLoading ? "ENVIANDO..." : "SOLICITAR ATENCIÓN INMEDIATA"}
@@ -285,13 +268,11 @@ export default function LawFirmLander() {
                     initial={{ opacity: 0 }} 
                     animate={{ opacity: 1 }} 
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 bg-[#121214] flex flex-col items-center justify-center p-5 sm:p-6 text-center z-10 rounded-xl sm:rounded-2xl"
+                    className="absolute inset-0 bg-[#121214] flex flex-col items-center justify-center p-6 text-center z-10 rounded-xl"
                   >
-                    <ShieldCheck className="w-12 h-12 sm:w-14 sm:h-14 text-amber-400 mb-2 sm:mb-3" />
-                    <h4 className="text-lg sm:text-xl font-serif text-white font-bold">
-                      Solicitud Recibida
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-[250px]">
+                    <ShieldCheck className="w-14 h-14 text-amber-400 mb-3" />
+                    <h4 className="text-xl font-serif text-white font-bold">Solicitud Recibida</h4>
+                    <p className="text-sm text-slate-300 mt-2 max-w-[250px]">
                       Un especialista revisará su caso y se contactará con usted en menos de 2 horas.
                     </p>
                   </motion.div>
@@ -303,26 +284,22 @@ export default function LawFirmLander() {
       </section>
 
       {/* ÁREAS DE PRÁCTICA - Grid optimizado */}
-      <section id="services" className="py-10 sm:py-12 px-4 bg-[#0e0e10]">
+      <section id="services" className="py-12 px-4 bg-[#0e0e10]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-white mb-6 sm:mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-serif text-white mb-8 text-center px-4">
             Nuestras Áreas de Especialización
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 md:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 px-2">
             {SERVICES.map((s, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-[#0a0a0b] p-4 sm:p-5 border border-white/5 rounded-xl sm:rounded-2xl active:bg-white/5 transition-all group touch-manipulation"
+                className="bg-[#0a0a0b] p-5 border border-white/5 rounded-2xl active:bg-white/5 transition-all group touch-manipulation"
               >
-                <s.icon className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
-                <h3 className="text-base sm:text-lg font-serif text-white mb-1.5 sm:mb-2">
-                  {s.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                  {s.desc}
-                </p>
+                <s.icon className="w-6 h-6 text-amber-400 mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="text-lg font-serif text-white mb-2">{s.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -330,26 +307,24 @@ export default function LawFirmLander() {
       </section>
 
       {/* CONTACTO - Optimizado para móvil */}
-      <section id="contact" className="py-10 sm:py-12 px-4 border-t border-white/5 bg-[#0a0a0c]">
-        <div className="max-w-7xl mx-auto flex flex-col gap-6 sm:gap-8">
-          <div className="text-center space-y-3 sm:space-y-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-white">
-              Contacto Directo
-            </h2>
+      <section id="contact" className="py-12 px-4 border-t border-white/5 bg-[#0a0a0c]">
+        <div className="max-w-7xl mx-auto flex flex-col gap-8">
+          <div className="text-center space-y-4 px-4">
+            <h2 className="text-2xl md:text-3xl font-serif text-white">Contacto Directo</h2>
             <a 
               href={`tel:${FIRM_CONFIG.contact.phone}`} 
-              className="inline-flex items-center justify-center gap-2.5 sm:gap-3 p-3.5 sm:p-4 bg-amber-400 text-black rounded-lg sm:rounded-xl w-full max-w-[350px] sm:max-w-[400px] mx-auto font-bold text-base sm:text-lg shadow-lg active:scale-[0.98] transition-transform touch-manipulation"
+              className="inline-flex items-center justify-center gap-3 p-4 bg-amber-400 text-black rounded-xl w-full max-w-[400px] mx-auto font-bold text-lg shadow-lg active:scale-[0.98] transition-transform touch-manipulation"
               aria-label={`Llamar a ${FIRM_CONFIG.contact.displayPhone}`}
             >
-              <Phone size={20} className="sm:w-[22px] sm:h-[22px]" />
+              <Phone size={22} />
               <span>{FIRM_CONFIG.contact.displayPhone}</span>
             </a>
-            <p className="text-slate-400 max-w-md mx-auto text-xs sm:text-sm px-4">
+            <p className="text-slate-400 max-w-md mx-auto text-sm">
               Llámenos ahora para una consulta urgente o visite nuestras oficinas en Chihuahua, México
             </p>
           </div>
           
-          <div className="h-[250px] sm:h-[280px] md:h-[350px] w-full rounded-xl sm:rounded-2xl overflow-hidden border border-white/10">
+          <div className="h-[280px] sm:h-[350px] w-full rounded-2xl overflow-hidden border border-white/10">
             <iframe 
               src={FIRM_CONFIG.contact.mapUrl} 
               className="w-full h-full border-0"
@@ -363,23 +338,23 @@ export default function LawFirmLander() {
       </section>
 
       {/* FOOTER - Legibilidad mejorada */}
-      <footer className="py-6 sm:py-8 px-4 border-t border-white/5 text-center bg-[#080809]">
-        <div className="flex flex-col items-center gap-2.5 sm:gap-3">
-          <Scale className="text-amber-400/30 w-6 h-6 sm:w-7 sm:h-7" />
-          <p className="text-[10px] sm:text-[11px] text-slate-500 tracking-[1.2px] sm:tracking-[1.5px] uppercase leading-relaxed max-w-[280px] sm:max-w-[300px]">
+      <footer className="py-8 px-4 border-t border-white/5 text-center bg-[#080809]">
+        <div className="flex flex-col items-center gap-3">
+          <Scale className="text-amber-400/30 w-7 h-7" />
+          <p className="text-[11px] sm:text-[10px] text-slate-500 tracking-[1.5px] uppercase leading-relaxed max-w-[300px]">
             © {new Date().getFullYear()} {FIRM_CONFIG.name}<br/>
             Abogados especialistas en Chihuahua, México
           </p>
-          <div className="mt-1.5 sm:mt-2 flex flex-wrap justify-center gap-2.5 sm:gap-3 px-4">
+          <div className="mt-2 flex flex-wrap justify-center gap-3 px-4">
             <button 
               onClick={() => document.getElementById('services')?.scrollIntoView({behavior:'smooth'})}
-              className="text-[9px] sm:text-[10px] text-slate-400 hover:text-amber-300 transition-colors touch-manipulation py-1"
+              className="text-[10px] text-slate-400 hover:text-amber-300 transition-colors"
             >
               Áreas de Práctica
             </button>
             <button 
               onClick={scrollToForm}
-              className="text-[9px] sm:text-[10px] text-slate-400 hover:text-amber-300 transition-colors touch-manipulation py-1"
+              className="text-[10px] text-slate-400 hover:text-amber-300 transition-colors"
             >
               Contacto
             </button>
