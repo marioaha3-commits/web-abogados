@@ -180,14 +180,14 @@ export default function LawFirmLander() {
                   name="nombre" 
                   type="text" 
                   required 
-                  placeholder="Nombre Completo" 
+                  placeholder="Nombre" 
                   className="w-full bg-white/5 border border-white/10 rounded-lg py-3.5 px-4 outline-none focus:border-amber-400 text-base" 
                 />
                 <input 
                   name="telefono" 
                   type="tel" 
                   required 
-                  placeholder="Teléfono (Ej. 6141234567)" 
+                  placeholder="Teléfono" 
                   className="w-full bg-white/5 border border-white/10 rounded-lg py-3.5 px-4 outline-none focus:border-amber-400 text-base" 
                 />
                 <div className="space-y-1.5">
