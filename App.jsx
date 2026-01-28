@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Scale, Phone, ShieldCheck, MapPin, Gavel, Heart, Building,
-  FileText, Briefcase, Copyright, MessageCircle, Menu, X, Users
+  FileText, Briefcase, Copyright, MessageCircle, Menu, X
 } from "lucide-react";
 
 const FIRM_CONFIG = {
@@ -229,9 +229,9 @@ export default function LawFirmLander() {
               </div>
             </div>
 
-            {/* CONTACTO DIRECTO - Movido aquí */}
+            {/* CONTACTO DIRECTO - Moved here */}
             <div className="mt-8 space-y-4">
-              <h3 className="text-sm font-serif text-white uppercase tracking-[1.3px] md:text-xs">
+              <h3 className="text-[18px] font-serif text-white leading-tight md:text-base lg:text-lg">
                 Contacto Directo
               </h3>
               <a 
@@ -347,87 +347,35 @@ export default function LawFirmLander() {
         </div>
       </section>
 
-      {/* SOBRE NOSOTROS - Nueva sección */}
+      {/* SOBRE NOSOTROS - New section */}
       <section id="about" className="py-12 px-5 border-t border-white/5 bg-[#0a0a0c]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-[28px] font-serif text-white leading-tight mb-4 md:text-2xl lg:text-3xl">
+        <div className="max-w-7xl mx-auto flex flex-col gap-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-[28px] font-serif text-white leading-tight md:text-2xl lg:text-3xl">
               Sobre Nosotros
             </h2>
+            <div className="max-w-3xl mx-auto space-y-5 text-slate-300">
+              <p className="text-base leading-relaxed md:text-[15px]">
+                <strong className="text-amber-400">Hernández y Asociados</strong> es un despacho jurídico con más de 20 años de experiencia brindando servicios legales de excelencia en Chihuahua, México. Nuestro compromiso es defender los derechos de nuestros clientes con profesionalismo, ética y dedicación.
+              </p>
+              <p className="text-base leading-relaxed md:text-[15px]">
+                Contamos con un equipo de abogados especializados en diversas áreas del derecho, lo que nos permite ofrecer soluciones integrales y personalizadas para cada caso. Nuestra misión es proporcionar asesoría legal de la más alta calidad, manteniendo siempre la transparencia y comunicación constante con nuestros clientes.
+              </p>
+              <p className="text-base leading-relaxed md:text-[15px]">
+                Con un historial del 90% de sentencias favorables, nos enorgullece ser la primera opción para individuos y empresas que buscan representación legal confiable en Chihuahua y sus alrededores.
+              </p>
+            </div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-5"
-            >
-              <div className="flex items-start gap-4">
-                <Users className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-lg font-serif text-white mb-2">
-                    Compromiso con la Justicia
-                  </h3>
-                  <p className="text-[15px] text-slate-400 leading-relaxed">
-                    En Hernández y Asociados, nos dedicamos a defender los derechos de nuestros clientes con integridad, profesionalismo y una profunda comprensión del sistema legal mexicano.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <ShieldCheck className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-lg font-serif text-white mb-2">
-                    Experiencia que Cuenta
-                  </h3>
-                  <p className="text-[15px] text-slate-400 leading-relaxed">
-                    Con más de 20 años de experiencia en Chihuahua, hemos ayudado a cientos de familias y empresas a resolver sus asuntos legales con éxito y transparencia.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <Scale className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-lg font-serif text-white mb-2">
-                    Atención Personalizada
-                  </h3>
-                  <p className="text-[15px] text-slate-400 leading-relaxed">
-                    Cada caso es único. Brindamos atención personalizada y estrategias legales adaptadas a las necesidades específicas de cada cliente, garantizando los mejores resultados posibles.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-[#121214] border border-white/10 p-8 rounded-2xl"
-            >
-              <h3 className="text-xl font-serif text-white mb-6 text-center">
-                Nuestra Ubicación
-              </h3>
-              <div className="h-[300px] w-full rounded-xl overflow-hidden border border-white/10 mb-6">
-                <iframe 
-                  src={FIRM_CONFIG.contact.mapUrl} 
-                  className="w-full h-full border-0"
-                  title="Ubicación de oficinas"
-                  allowFullScreen=""
-                  loading="lazy"
-                  aria-label="Mapa de ubicación en Chihuahua"
-                />
-              </div>
-              <div className="text-center">
-                <MapPin className="w-6 h-6 text-amber-400 mx-auto mb-2" />
-                <p className="text-slate-300 text-sm">
-                  C. 16a 2612, Pacífico<br/>
-                  Zona Centro II, 31030<br/>
-                  Chihuahua, Chih., México
-                </p>
-              </div>
-            </motion.div>
+          <div className="h-[300px] w-full rounded-2xl overflow-hidden border border-white/10 md:h-[280px] lg:h-[350px]">
+            <iframe 
+              src={FIRM_CONFIG.contact.mapUrl} 
+              className="w-full h-full border-0"
+              title="Ubicación de oficinas"
+              allowFullScreen=""
+              loading="lazy"
+              aria-label="Mapa de ubicación en Chihuahua"
+            />
           </div>
         </div>
       </section>
@@ -446,12 +394,6 @@ export default function LawFirmLander() {
               className="text-xs text-slate-400 hover:text-amber-300 transition-colors touch-manipulation py-1.5 md:text-[10px]"
             >
               Áreas de Práctica
-            </button>
-            <button 
-              onClick={() => document.getElementById('about')?.scrollIntoView({behavior:'smooth'})}
-              className="text-xs text-slate-400 hover:text-amber-300 transition-colors touch-manipulation py-1.5 md:text-[10px]"
-            >
-              Sobre Nosotros
             </button>
             <button 
               onClick={scrollToForm}
