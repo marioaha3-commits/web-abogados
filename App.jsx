@@ -216,7 +216,7 @@ export default function LawFirmLander() {
                   {FIRM_CONFIG.stats.years}
                 </span>
                 <span className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1.5 block md:text-[10px]">
-                  Años de Pericia
+                  Años de Experiencia
                 </span>
               </div>
               <div className="min-w-[100px]">
