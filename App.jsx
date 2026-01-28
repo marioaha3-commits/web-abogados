@@ -14,7 +14,7 @@ const FIRM_CONFIG = {
     displayPhone: "614-468-19-49",
     whatsappMsg: "Hola, necesito asesoría legal urgente en Chihuahua.",
     location: "Chihuahua, México",
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116545.45293214734!2d-106.1643924!3d28.6329957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ea4497334757c9%3A0x67341b525d8084a4!2sChihuahua%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx"
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d437.7669578384289!2d-106.07230696814854!3d28.625695900000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ea5cae8df17427%3A0xbd722b964806026!2sC.%2016a%202612%2C%20Pac%C3%ADfico%2C%20Zona%20Centro%20II%2C%2031030%20Chihuahua%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1769576894697!5m2!1ses-419!2smx"
   },
   stats: { years: "20+", successRate: "90%" }
 };
