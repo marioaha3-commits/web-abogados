@@ -242,6 +242,16 @@ export default function LawFirmLander() {
                 <Phone className="w-6 h-6 md:w-[22px] md:h-[22px]" />
                 <span>{FIRM_CONFIG.contact.displayPhone}</span>
               </a>
+              <a 
+                href={`https://wa.me/${FIRM_CONFIG.contact.phone}?text=${encodeURIComponent(FIRM_CONFIG.contact.whatsappMsg)}`}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 p-5 bg-[#25D366] text-white rounded-xl w-full font-bold text-xl shadow-lg active:scale-[0.98] transition-transform touch-manipulation md:p-4 md:text-lg"
+                aria-label="Contactar por WhatsApp"
+              >
+                <MessageCircle className="w-6 h-6 md:w-[22px] md:h-[22px]" />
+                <span>Enviar WhatsApp</span>
+              </a>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Llámenos ahora para una consulta urgente
               </p>
