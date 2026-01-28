@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Scale, Phone, ShieldCheck, MapPin, Gavel, Heart, Building,
-  FileText, Briefcase, Copyright, MessageCircle, Menu, X
+  FileText, Briefcase, Copyright, MessageCircle, Menu, X, Users
 } from "lucide-react";
 
 const FIRM_CONFIG = {
@@ -174,12 +174,12 @@ export default function LawFirmLander() {
                 </button>
                 <button 
                   onClick={() => {
-                    document.getElementById('contact')?.scrollIntoView({behavior:'smooth'});
+                    document.getElementById('about')?.scrollIntoView({behavior:'smooth'});
                     setMobileMenuOpen(false);
                   }} 
                   className="text-base font-medium uppercase tracking-wider py-3.5 hover:bg-white/5 rounded-lg transition-colors touch-manipulation text-center"
                 >
-                  Ubicación
+                  Sobre Nosotros
                 </button>
                 <button 
                   onClick={scrollToForm} 
@@ -227,6 +227,24 @@ export default function LawFirmLander() {
                   Sentencias Favorables
                 </span>
               </div>
+            </div>
+
+            {/* CONTACTO DIRECTO - Movido aquí */}
+            <div className="mt-8 space-y-4">
+              <h3 className="text-sm font-serif text-white uppercase tracking-[1.3px] md:text-xs">
+                Contacto Directo
+              </h3>
+              <a 
+                href={`tel:${FIRM_CONFIG.contact.phone}`} 
+                className="inline-flex items-center justify-center gap-3 p-5 bg-amber-400 text-black rounded-xl w-full font-bold text-xl shadow-lg active:scale-[0.98] transition-transform touch-manipulation md:p-4 md:text-lg"
+                aria-label={`Llamar a ${FIRM_CONFIG.contact.displayPhone}`}
+              >
+                <Phone className="w-6 h-6 md:w-[22px] md:h-[22px]" />
+                <span>{FIRM_CONFIG.contact.displayPhone}</span>
+              </a>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Llámenos ahora para una consulta urgente
+              </p>
             </div>
           </motion.div>
 
@@ -329,35 +347,87 @@ export default function LawFirmLander() {
         </div>
       </section>
 
-      {/* CONTACTO - Mobile-first button sizing */}
-      <section id="contact" className="py-12 px-5 border-t border-white/5 bg-[#0a0a0c]">
-        <div className="max-w-7xl mx-auto flex flex-col gap-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-[28px] font-serif text-white leading-tight md:text-2xl lg:text-3xl">
-              Contacto Directo
+      {/* SOBRE NOSOTROS - Nueva sección */}
+      <section id="about" className="py-12 px-5 border-t border-white/5 bg-[#0a0a0c]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-[28px] font-serif text-white leading-tight mb-4 md:text-2xl lg:text-3xl">
+              Sobre Nosotros
             </h2>
-            <a 
-              href={`tel:${FIRM_CONFIG.contact.phone}`} 
-              className="inline-flex items-center justify-center gap-3 p-5 bg-amber-400 text-black rounded-xl w-full max-w-[380px] mx-auto font-bold text-xl shadow-lg active:scale-[0.98] transition-transform touch-manipulation md:p-4 md:text-lg md:max-w-[400px]"
-              aria-label={`Llamar a ${FIRM_CONFIG.contact.displayPhone}`}
-            >
-              <Phone className="w-6 h-6 md:w-[22px] md:h-[22px]" />
-              <span>{FIRM_CONFIG.contact.displayPhone}</span>
-            </a>
-            <p className="text-slate-400 max-w-md mx-auto text-sm px-4 leading-relaxed">
-              Llámenos ahora para una consulta urgente o visite nuestras oficinas en Chihuahua, México
-            </p>
           </div>
           
-          <div className="h-[300px] w-full rounded-2xl overflow-hidden border border-white/10 md:h-[280px] lg:h-[350px]">
-            <iframe 
-              src={FIRM_CONFIG.contact.mapUrl} 
-              className="w-full h-full border-0"
-              title="Ubicación de oficinas"
-              allowFullScreen=""
-              loading="lazy"
-              aria-label="Mapa de ubicación en Chihuahua"
-            />
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-5"
+            >
+              <div className="flex items-start gap-4">
+                <Users className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-serif text-white mb-2">
+                    Compromiso con la Justicia
+                  </h3>
+                  <p className="text-[15px] text-slate-400 leading-relaxed">
+                    En Hernández y Asociados, nos dedicamos a defender los derechos de nuestros clientes con integridad, profesionalismo y una profunda comprensión del sistema legal mexicano.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <ShieldCheck className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-serif text-white mb-2">
+                    Experiencia que Cuenta
+                  </h3>
+                  <p className="text-[15px] text-slate-400 leading-relaxed">
+                    Con más de 20 años de experiencia en Chihuahua, hemos ayudado a cientos de familias y empresas a resolver sus asuntos legales con éxito y transparencia.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <Scale className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-serif text-white mb-2">
+                    Atención Personalizada
+                  </h3>
+                  <p className="text-[15px] text-slate-400 leading-relaxed">
+                    Cada caso es único. Brindamos atención personalizada y estrategias legales adaptadas a las necesidades específicas de cada cliente, garantizando los mejores resultados posibles.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-[#121214] border border-white/10 p-8 rounded-2xl"
+            >
+              <h3 className="text-xl font-serif text-white mb-6 text-center">
+                Nuestra Ubicación
+              </h3>
+              <div className="h-[300px] w-full rounded-xl overflow-hidden border border-white/10 mb-6">
+                <iframe 
+                  src={FIRM_CONFIG.contact.mapUrl} 
+                  className="w-full h-full border-0"
+                  title="Ubicación de oficinas"
+                  allowFullScreen=""
+                  loading="lazy"
+                  aria-label="Mapa de ubicación en Chihuahua"
+                />
+              </div>
+              <div className="text-center">
+                <MapPin className="w-6 h-6 text-amber-400 mx-auto mb-2" />
+                <p className="text-slate-300 text-sm">
+                  C. 16a 2612, Pacífico<br/>
+                  Zona Centro II, 31030<br/>
+                  Chihuahua, Chih., México
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -376,6 +446,12 @@ export default function LawFirmLander() {
               className="text-xs text-slate-400 hover:text-amber-300 transition-colors touch-manipulation py-1.5 md:text-[10px]"
             >
               Áreas de Práctica
+            </button>
+            <button 
+              onClick={() => document.getElementById('about')?.scrollIntoView({behavior:'smooth'})}
+              className="text-xs text-slate-400 hover:text-amber-300 transition-colors touch-manipulation py-1.5 md:text-[10px]"
+            >
+              Sobre Nosotros
             </button>
             <button 
               onClick={scrollToForm}
