@@ -271,17 +271,17 @@ export default function LawFirmLander() {
                   name="nombre" 
                   type="text" 
                   required 
-                  placeholder="Nombre completo" 
+                  placeholder="Nombre" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-base outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 placeholder:text-slate-500 transition-colors touch-manipulation md:py-3.5"
-                  aria-label="Nombre completo"
+                  aria-label="Nombre"
                 />
                 <input 
                   name="telefono" 
                   type="tel" 
                   required 
-                  placeholder="Teléfono con lada" 
+                  placeholder="Teléfono" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-base outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 placeholder:text-slate-500 transition-colors touch-manipulation md:py-3.5"
-                  aria-label="Teléfono con lada"
+                  aria-label="Teléfono"
                 />
                 <div className="space-y-2">
                   <label className="text-xs uppercase tracking-wider text-amber-300 font-bold ml-1 flex items-center md:text-[10px]">
@@ -292,7 +292,7 @@ export default function LawFirmLander() {
                     name="caso" 
                     required 
                     rows="4" 
-                    placeholder="Explique brevemente su situación legal..." 
+                    placeholder="¿Cuéntenos, que pasó?"
                     className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-base outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 placeholder:text-slate-500 resize-none touch-manipulation md:p-3.5"
                     aria-label="Detalles del caso"
                   ></textarea>
