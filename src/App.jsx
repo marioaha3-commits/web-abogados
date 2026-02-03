@@ -171,7 +171,12 @@ export default function LawFirmLander() {
                 en sus asuntos legales
               </span>
             </h1>
-            
+            <p className="text-lg text-slate-400 mb-6 md:text-base lg:text-xl">
+              Lo contactamos con un especialista para su caso
+            </p>
+
+{/* Stats - Mobile-first sizing */}
+<div className="flex flex-row justify-center gap-8 border-t border-white/10 pt-5 mt-6 max-w-md mx-auto"></div>
             {/* Stats - Mobile-first sizing */}
             <div className="flex flex-row justify-center gap-8 border-t border-white/10 pt-5 mt-6 max-w-md mx-auto">
               <div className="min-w-[100px]">
