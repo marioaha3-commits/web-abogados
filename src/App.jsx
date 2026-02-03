@@ -172,7 +172,7 @@ export default function LawFirmLander() {
               </span>
             </h1>
             <p className="text-lg text-slate-400 mb-6 md:text-base lg:text-xl">
-              Lo contactamos con un especialista para su caso
+              Lo contactamos de inmediato con un especialista para su caso
             </p>
 
 {/* Stats - Mobile-first sizing */}
