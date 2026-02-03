@@ -7,7 +7,7 @@ import {
 
 const FIRM_CONFIG = {
   name: "ABOGADOS DE CHIHUAHUA",
-  tagline: "Especialistas",
+  tagline: "ESPECIALISTAS",
   apiEndpoint: `${import.meta.env.VITE_API_URL || 'https://asociados-backend.onrender.com'}/api/contacto`,
   contact: {
     phone: "6144681949",
@@ -16,7 +16,7 @@ const FIRM_CONFIG = {
     location: "Chihuahua, México",
     mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d437.7669578384289!2d-106.07230696814854!3d28.625695900000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ea5cae8df17427%3A0xbd722b964806026!2sC.%2016a%202612%2C%20Pac%C3%ADfico%2C%20Zona%20Centro%20II%2C%2031030%20Chihuahua%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1769576894697!5m2!1ses-419!2smx"
   },
-  stats: { years: "20+", successRate: "90%" }
+  stats: { years: "20+", successRate: "95%" }
 };
 
 const SERVICES = [
@@ -372,7 +372,7 @@ export default function LawFirmLander() {
                 Contamos con un equipo de abogados especializados en diversas áreas del derecho, lo que nos permite ofrecer soluciones integrales y personalizadas para cada caso. Nuestra misión es proporcionar asesoría legal de la más alta calidad, manteniendo siempre la transparencia y comunicación constante con nuestros clientes.
               </p>
               <p className="text-base leading-relaxed md:text-[15px]">
-                Con un historial del 90% de sentencias favorables, nos enorgullece ser la primera opción para individuos y empresas que buscan representación legal confiable en Chihuahua y sus alrededores.
+                Con un historial del 95% de sentencias favorables, nos enorgullece ser la primera opción para individuos y empresas que buscan representación legal confiable en Chihuahua y sus alrededores.
               </p>
             </div>
           </div>
