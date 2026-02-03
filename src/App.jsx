@@ -6,13 +6,13 @@ import {
 } from "lucide-react";
 
 const FIRM_CONFIG = {
-  name: "HERNANDEZ Y ASOCIADOS",
-  tagline: "Abogados de Chihuahua",
+  name: "Abogados de Chihuahua",
+  tagline: "Especialistas",
   apiEndpoint: `${import.meta.env.VITE_API_URL || 'https://asociados-backend.onrender.com'}/api/contacto`,
   contact: {
     phone: "6144681949",
     displayPhone: "614-468-19-49",
-    whatsappMsg: "Hola, necesito asesoría legal.",
+    whatsappMsg: "Hola, necesito asesoría legal en Chihuahua.",
     location: "Chihuahua, México",
     mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d437.7669578384289!2d-106.07230696814854!3d28.625695900000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ea5cae8df17427%3A0xbd722b964806026!2sC.%2016a%202612%2C%20Pac%C3%ADfico%2C%20Zona%20Centro%20II%2C%2031030%20Chihuahua%2C%20Chih.!5e0!3m2!1ses-419!2smx!4v1769576894697!5m2!1ses-419!2smx"
   },
@@ -119,7 +119,7 @@ export default function LawFirmLander() {
             <Scale className="text-amber-400 w-7 h-7 flex-shrink-0" />
             <div className="leading-tight min-w-0 flex-1">
               <span className="text-white font-serif text-sm font-bold tracking-wide block truncate">
-                HERNANDEZ Y ASOCIADOS
+                Abogados de Chihuahua
               </span>
               <p className="text-[10px] text-amber-400/80 tracking-[1.3px] mt-0.5 uppercase font-bold truncate">
                 {FIRM_CONFIG.tagline}
