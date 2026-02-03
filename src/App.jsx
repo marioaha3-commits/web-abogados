@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 const FIRM_CONFIG = {
-  name: "Abogados de Chihuahua",
+  name: "ABOGADOS DE CHIHUAHUA",
   tagline: "Especialistas",
   apiEndpoint: `${import.meta.env.VITE_API_URL || 'https://asociados-backend.onrender.com'}/api/contacto`,
   contact: {
@@ -119,7 +119,7 @@ export default function LawFirmLander() {
             <Scale className="text-amber-400 w-7 h-7 flex-shrink-0" />
             <div className="leading-tight min-w-0 flex-1">
               <span className="text-white font-serif text-sm font-bold tracking-wide block truncate">
-                Abogados de Chihuahua
+                ABOGADOS DE CHIHUAHUA
               </span>
               <p className="text-[10px] text-amber-400/80 tracking-[1.3px] mt-0.5 uppercase font-bold truncate">
                 {FIRM_CONFIG.tagline}
