@@ -29,11 +29,8 @@ const SERVICES = [
 ];
 
 export default function LawFirmLander() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [showFloatBtn, setShowFloatBtn] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const formRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setShowFloatBtn(window.scrollY > 300);
@@ -41,43 +38,9 @@ export default function LawFirmLander() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToForm = () => {
+  const scrollToContact = () => {
     setMobileMenuOpen(false);
-    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    const formData = new FormData(e.target);
-    const data = {
-      nombre: formData.get('nombre'),
-      telefono: formData.get('telefono'),
-      caso: formData.get('caso')
-    };
-
-    try {
-      const response = await fetch(FIRM_CONFIG.apiEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        e.target.reset();
-        setTimeout(() => setIsSubmitted(false), 5000);
-      } else {
-        const errorData = await response.json();
-        alert(errorData.error || "Error al enviar la solicitud.");
-      }
-    } catch (error) {
-      console.error("Error de red:", error);
-      alert("No se pudo conectar con el servidor. Por favor, intente vía WhatsApp.");
-    } finally {
-      setIsLoading(false);
-    }
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -102,11 +65,11 @@ export default function LawFirmLander() {
               <MessageCircle className="w-7 h-7" />
             </a>
             <button 
-              onClick={scrollToForm}
+              onClick={scrollToContact}
               className="bg-amber-400 p-4 rounded-full shadow-2xl text-black active:scale-95 transition-transform touch-manipulation hover:shadow-amber-400/50"
-              aria-label="Agendar cita"
+              aria-label="Contacto"
             >
-              <Scale className="w-7 h-7" />
+              <Phone className="w-7 h-7" />
             </button>
           </motion.div>
         )}
@@ -136,10 +99,10 @@ export default function LawFirmLander() {
               Práctica
             </button>
             <button 
-              onClick={scrollToForm} 
+              onClick={scrollToContact} 
               className="bg-amber-400/10 border border-amber-400/30 px-4 py-2 text-[10px] uppercase tracking-widest text-amber-400 hover:bg-amber-400 hover:text-black transition-all rounded-lg"
             >
-              AGENDE SU CITA
+              CONTACTO
             </button>
           </div>
 
@@ -182,10 +145,10 @@ export default function LawFirmLander() {
                   Sobre Nosotros
                 </button>
                 <button 
-                  onClick={scrollToForm} 
+                  onClick={scrollToContact} 
                   className="w-full bg-amber-400 text-black py-4 font-bold rounded-lg uppercase text-sm tracking-wider mt-1 touch-manipulation"
                 >
-                  AGENDE SU CITA
+                  CONTACTO
                 </button>
               </div>
             </motion.div>
@@ -195,11 +158,11 @@ export default function LawFirmLander() {
 
       {/* HERO SECTION - Mobile-first: larger base sizes, scale down for desktop */}
       <section className="relative pt-24 pb-10 px-5 lg:pt-28 lg:px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+        <div className="max-w-7xl mx-auto">
           <motion.div 
             initial={{opacity:0, y:20}} 
             animate={{opacity:1, y:0}}
-            className="lg:pr-8"
+            className="text-center max-w-4xl mx-auto"
           >
             {/* Mobile: 32px, Desktop: scales up */}
             <h1 className="text-[32px] leading-[1.2] font-serif text-white mb-5 md:text-4xl lg:text-5xl">
@@ -210,7 +173,7 @@ export default function LawFirmLander() {
             </h1>
             
             {/* Stats - Mobile-first sizing */}
-            <div className="flex flex-row justify-start gap-8 border-t border-white/10 pt-5 mt-4">
+            <div className="flex flex-row justify-center gap-8 border-t border-white/10 pt-5 mt-6 max-w-md mx-auto">
               <div className="min-w-[100px]">
                 <span className="block text-4xl font-serif text-white font-bold md:text-3xl">
                   {FIRM_CONFIG.stats.years}
@@ -229,8 +192,8 @@ export default function LawFirmLander() {
               </div>
             </div>
 
-            {/* CONTACTO DIRECTO - Moved here */}
-            <div className="mt-8 space-y-4">
+            {/* CONTACTO DIRECTO */}
+            <div id="contact" className="mt-10 space-y-4 max-w-md mx-auto scroll-mt-20">
               <h3 className="text-[18px] font-serif text-white leading-tight md:text-base lg:text-lg">
                 Contacto Directo
               </h3>
@@ -257,79 +220,9 @@ export default function LawFirmLander() {
               </p>
             </div>
           </motion.div>
-
-          {/* FORMULARIO - Mobile-first: base size 16px inputs (no iOS zoom) */}
-          <div ref={formRef} className="scroll-mt-20 md:scroll-mt-28">
-            <div className="bg-[#121214] border border-white/10 p-6 rounded-2xl shadow-xl relative overflow-hidden md:p-5 lg:p-6">
-              <h3 className="text-sm font-serif text-white mb-5 uppercase tracking-[1.3px] text-center leading-relaxed md:text-xs lg:text-sm">
-                LE CONTACTAREMOS EN MENOS DE 2 HORAS
-              </h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-3.5">
-                {/* Base: 16px (no zoom), override with md: for desktop */}
-                <input 
-                  name="nombre" 
-                  type="text" 
-                  required 
-                  placeholder="Nombre" 
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-base outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 placeholder:text-slate-500 transition-colors touch-manipulation md:py-3.5"
-                  aria-label="Nombre"
-                />
-                <input 
-                  name="telefono" 
-                  type="tel" 
-                  required 
-                  placeholder="Teléfono" 
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 text-base outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 placeholder:text-slate-500 transition-colors touch-manipulation md:py-3.5"
-                  aria-label="Teléfono"
-                />
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-wider text-amber-300 font-bold ml-1 flex items-center md:text-[10px]">
-                    <MessageCircle className="w-3.5 h-3.5 mr-1.5 md:w-3 md:h-3" />
-                    Detalles de su caso:
-                  </label>
-                  <textarea 
-                    name="caso" 
-                    required 
-                    rows="4" 
-                    placeholder="¿Cuéntenos, que pasó?"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-base outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 placeholder:text-slate-500 resize-none touch-manipulation md:p-3.5"
-                    aria-label="Detalles del caso"
-                  ></textarea>
-                </div>
-                <motion.button 
-                  whileTap={{ scale: 0.97 }} 
-                  disabled={isLoading}
-                  className="w-full bg-amber-400 text-black font-bold py-4 rounded-xl uppercase text-xs tracking-[1.3px] shadow-md hover:shadow-lg disabled:opacity-60 transition-all touch-manipulation mt-2 md:py-3.5 md:text-[11px]"
-                  type="submit"
-                >
-                  {isLoading ? "ENVIANDO..." : "SOLICITAR ATENCIÓN INMEDIATA"}
-                </motion.button>
-              </form>
-
-              <AnimatePresence>
-                {isSubmitted && (
-                  <motion.div 
-                    initial={{ opacity: 0 }} 
-                    animate={{ opacity: 1 }} 
-                    exit={{ opacity: 0 }}
-                    className="absolute inset-0 bg-[#121214] flex flex-col items-center justify-center p-6 text-center z-10 rounded-2xl"
-                  >
-                    <ShieldCheck className="w-16 h-16 text-amber-400 mb-3 md:w-14 md:h-14" />
-                    <h4 className="text-xl font-serif text-white font-bold">
-                      Solicitud Recibida
-                    </h4>
-                    <p className="text-sm text-slate-300 mt-2.5 max-w-[280px]">
-                      Un especialista revisará su caso y se contactará con usted en menos de 2 horas.
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
         </div>
       </section>
-
+      
       {/* ÁREAS DE PRÁCTICA - Mobile-first grid */}
       <section id="services" className="py-12 px-5 bg-[#0e0e10]">
         <div className="max-w-7xl mx-auto">
@@ -406,7 +299,7 @@ export default function LawFirmLander() {
               Áreas de Práctica
             </button>
             <button 
-              onClick={scrollToForm}
+              onClick={scrollToContact}
               className="text-xs text-slate-400 hover:text-amber-300 transition-colors touch-manipulation py-1.5 md:text-[10px]"
             >
               Contacto
