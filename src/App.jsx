@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Scale, Phone, ShieldCheck, MapPin, Gavel, Heart, Building,
@@ -43,9 +44,33 @@ export default function LawFirmLander() {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  // Función para rastrear conversión de llamada telefónica
+  const handlePhoneClick = () => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-17914384373/CONVERSION_LABEL', // Reemplaza CONVERSION_LABEL con tu etiqueta real
+        'value': 1.0,
+        'currency': 'MXN'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0b] text-slate-300 selection:bg-amber-200/20 font-sans antialiased overflow-x-hidden">
       
+      {/* Google Tag Manager */}
+      <Helmet>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17914384373"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17914384373');
+          `}
+        </script>
+      </Helmet>
+
       {/* BOTONES FLOTANTES - Mobile-first sizing */}
       <AnimatePresence>
         {showFloatBtn && (
@@ -175,8 +200,6 @@ export default function LawFirmLander() {
               Lo contactamos de inmediato con un especialista para su caso
             </p>
 
-{/* Stats - Mobile-first sizing */}
-<div className="flex flex-row justify-center gap-8 border-t border-white/10 pt-5 mt-6 max-w-md mx-auto"></div>
             {/* Stats - Mobile-first sizing */}
             <div className="flex flex-row justify-center gap-8 border-t border-white/10 pt-5 mt-6 max-w-md mx-auto">
               <div className="min-w-[100px]">
@@ -203,7 +226,8 @@ export default function LawFirmLander() {
                 Contacto Directo
               </h3>
               <a 
-                href={`tel:${FIRM_CONFIG.contact.phone}`} 
+                href={`tel:${FIRM_CONFIG.contact.phone}`}
+                onClick={handlePhoneClick}
                 className="inline-flex items-center justify-center gap-3 p-5 bg-amber-400 text-black rounded-xl w-full font-bold text-xl shadow-lg active:scale-[0.98] transition-transform touch-manipulation md:p-4 md:text-lg"
                 aria-label={`Llamar a ${FIRM_CONFIG.contact.displayPhone}`}
               >
